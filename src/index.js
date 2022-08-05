@@ -1,5 +1,4 @@
 import './style.css';
-// import { createPanel } from './dom';
 
 import {
     content,
