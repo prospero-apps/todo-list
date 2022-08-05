@@ -1,11 +1,16 @@
-body {
-    background-color: lightblue;
+@font-face {
+    font-family: 'Indie Flower';
+    src: url('./fonts/IndieFlower.ttf') format('truetype');    
 }
 
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-font-family: 'Indie Flower', cursive; */
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto.ttf') format('truetype');
+}
 
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-font-family: 'Roboto', sans-serif; */
+body {
+    background: url('./images/bg.jpg');
+    font-size: 2em;
+    font-family: 'Roboto';
+}
 
