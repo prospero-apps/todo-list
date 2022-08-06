@@ -22,8 +22,9 @@ class TodoList {
         this.todos.push(todo);
     }
 
-    remove(index) {
-        this.todos.splice(index, 1);
+    remove(todo) {
+        let todoIndex = todos.indexOf(todo);
+        this.todos.splice(todoIndex, 1);
     }
 }
 
@@ -65,19 +66,19 @@ todo6 = new Todo(
     '2022-07-15',
     'low');
 
-// create projects (TodoLists) and add todos to them
-project1 = new TodoList('School');
-project1.add(todo1);
+// create TodoLists and add todos to them
+list1 = new TodoList('School');
+list1.add(todo1);
 
-project2 = new TodoList('Workout');
-project2.add(todo3);
+list2 = new TodoList('Workout');
+list2.add(todo3);
 
-project3 = new TodoList('Home and Family')
-project3.add(todo2);
-project3.add(todo4);
-project3.add(todo6);
+list3 = new TodoList('Home and Family')
+list3.add(todo2);
+list3.add(todo4);
+list3.add(todo6);
 
-project4 = new TodoList('Miscellaneous');
-project4.add(todo5);
+list4 = new TodoList('Miscellaneous');
+list4.add(todo5);
 
 export default TodoList;
