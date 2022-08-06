@@ -4,6 +4,8 @@ class Todo {
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.selected = false;
+        this.done = false;
     }
 
     getTitle() {
@@ -36,6 +38,22 @@ class Todo {
 
     setPriority(value) {
         this.priority = value;
+    }
+
+    getSelected() {
+        return this.selected;
+    }
+
+    setSelected(value) {
+        this.selected = value;
+    }
+
+    getDone() {
+        return this.done;
+    }
+
+    setDone(value) {
+        this.done = value;
     }
 }
 
