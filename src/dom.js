@@ -40,6 +40,7 @@ add(header, headerIcon, headerText);
 
 
 export {
+    createIcon,
     content,
     container, 
     header,

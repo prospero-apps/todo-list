@@ -1,4 +1,6 @@
 import './style.css';
+import displayList from './listDisplay';
+import { allLists } from './sample';
 
 import {
     content,
@@ -9,3 +11,5 @@ import {
     mainPanel,
 } from './dom';
 
+const chosenList = allLists.getLists()[2];
+mainPanel.appendChild(displayList(chosenList));

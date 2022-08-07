@@ -5,6 +5,10 @@ class TodoLists {
         this.lists = [];
     }
 
+    getLists() {
+        return this.lists;
+    }
+
     count() {
         return this.todos.length;
     }
@@ -16,6 +20,10 @@ class TodoLists {
     remove(list) {
         let listIndex = lists.indexOf(list);
         this.lists.splice(listIndex, 1);
+    }
+
+    clear() {
+        this.lists = [];
     }
 }
 

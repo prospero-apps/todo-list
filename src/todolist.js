@@ -14,6 +14,10 @@ class TodoList {
         this.name = value;
     }
 
+    getTodos() {
+        return this.todos;
+    }
+
     count() {
         return this.todos.length;
     }
@@ -25,6 +29,10 @@ class TodoList {
     remove(todo) {
         let todoIndex = todos.indexOf(todo);
         this.todos.splice(todoIndex, 1);
+    }
+
+    clear() {
+        this.todos = [];
     }
 }
 

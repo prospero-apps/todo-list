@@ -4,6 +4,10 @@ class NoteList {
     constructor() {
         this.notes = [];
     }
+
+    getNotes() {
+        return this.notes;
+    }
     
     count() {
         return this.notes.length;
@@ -16,6 +20,10 @@ class NoteList {
     remove(note) {
         let noteIndex = notes.indexOf(note);
         this.notes.splice(noteIndex, 1);
+    }
+
+    clear() {
+        this.notes = [];
     }
 }
 
