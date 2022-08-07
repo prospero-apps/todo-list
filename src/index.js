@@ -1,5 +1,6 @@
 import './style.css';
 import displayList from './listDisplay';
+import displayNav from './navDisplay';
 import { allLists } from './sample';
 
 import {
@@ -10,6 +11,8 @@ import {
     notesPanel,
     mainPanel,
 } from './dom';
+
+sidebar.appendChild(displayNav());
 
 const chosenList = allLists.getLists()[2];
 mainPanel.appendChild(displayList(chosenList));
