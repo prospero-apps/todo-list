@@ -29,9 +29,7 @@ function displayNavItem(list, icon) {
     navCounter.className = 'nav-counter';
     navCounter.textContent = list.count();
     navItem.appendChild(navCounter);
-
-    console.log(list);
-
+    
     return navItem;
 }
 

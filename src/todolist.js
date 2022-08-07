@@ -4,6 +4,7 @@ class TodoList {
     constructor(name) {
         this.name = name;
         this.todos = [];
+        this.addedTime = new Date();
     }
 
     getName() {
@@ -34,6 +35,11 @@ class TodoList {
     clear() {
         this.todos = [];
     }
+
+    sortByAddedTimeDesc() {
+        this.todos.sort((a, b) => b.addedTime - a.addedTime);
+    }
+
 }
 
 export default TodoList;
