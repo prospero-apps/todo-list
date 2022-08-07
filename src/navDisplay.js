@@ -1,4 +1,4 @@
-import { allLists } from './sample';
+import { allLists } from './setup';
 import displayNavItem from './navItemDisplay';
 
 // icons
@@ -11,27 +11,32 @@ function displayNav() {
     const navPanel = document.createElement('div');
     navPanel.className = 'nav-panel';
 
-    const homeList = displayNavItem('Home', HomeIcon, 12);
-    homeList.classList.add('home-list');
-    navPanel.appendChild(homeList);
+    // const homeList = displayNavItem('Home', HomeIcon, 12);
+    // homeList.classList.add('home-list');
+    // navPanel.appendChild(homeList);
 
-    const todayList = displayNavItem('Today', TodayIcon, 7);
-    todayList.classList.add('today-list');
-    navPanel.appendChild(todayList);
+    // const todayList = displayNavItem('Today', TodayIcon, 7);
+    // todayList.classList.add('today-list');
+    // navPanel.appendChild(todayList);
 
-    const weekList = displayNavItem('This Week', WeekIcon, 1);
-    weekList.classList.add('week-list');
-    navPanel.appendChild(weekList);
+    // const weekList = displayNavItem('This Week', WeekIcon, 1);
+    // weekList.classList.add('week-list');
+    // navPanel.appendChild(weekList);
 
-    const myLists = displayNavItem('My Lists', MyListsIcon, 34);
-    myLists.classList.add('my-lists');
-    navPanel.appendChild(myLists);   
+    // const myLists = displayNavItem('My Lists', MyListsIcon, 34);
+    // myLists.classList.add('my-lists');
+    // navPanel.appendChild(myLists);   
     
+    const myLists = document.createElement('div');
+    myLists.classList.add('my-lists');
+    myLists.textContent = 'My Lists';
+    navPanel.appendChild(myLists);      
+
     for(let list of allLists.getLists()) {
-        const listName = displayNavItem(list.getName(), '', 4);       
+        const listName = displayNavItem(list, '');       
         listName.classList.add('list-name');
         navPanel.appendChild(listName);
-    }   
+    }  
 
     return navPanel;
 }

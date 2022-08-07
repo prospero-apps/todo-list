@@ -1,6 +1,6 @@
 import { createIcon } from './dom';
 
-function displayNavItem(listName, icon, count) {
+function displayNavItem(list, icon) {
     const navItem = document.createElement('div');
     navItem.className = 'nav-item';
 
@@ -11,24 +11,26 @@ function displayNavItem(listName, icon, count) {
     // icon
     const navIcon = document.createElement('div');
     navIcon.className = 'nav-icon';
-    if(icon) {
+    if (icon) {
         navIcon.appendChild(createIcon(icon));
         navIconName.appendChild(navIcon);
-    } 
+    }
 
     // name
     const navName = document.createElement('div');
     navName.className = 'nav-name';
-    navName.textContent = listName;
-    navIconName.appendChild (navName);
+    navName.textContent = list.getName();
+    navIconName.appendChild(navName);
 
     navItem.appendChild(navIconName);
 
     // counter
     const navCounter = document.createElement('div');
     navCounter.className = 'nav-counter';
-    navCounter.textContent = count;
-    navItem.appendChild(navCounter);      
+    navCounter.textContent = list.count();
+    navItem.appendChild(navCounter);
+
+    console.log(list);
 
     return navItem;
 }

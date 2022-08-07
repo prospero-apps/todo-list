@@ -1,7 +1,7 @@
 import './style.css';
 import displayList from './listDisplay';
 import displayNav from './navDisplay';
-import { allLists } from './sample';
+import { allLists } from './setup';
 
 import {
     content,
