@@ -14,6 +14,13 @@ function displayTodo(todo) {
 
     const todoCheckbox = document.createElement('input');
     todoCheckbox.type = 'checkbox';
+    todoCheckbox.addEventListener('change', (e) => {
+        if(e.target.checked) {
+            todoItem.classList.add('done');
+        } else {
+            todoItem.classList.remove('done');
+        }
+    })
     todoCheckbox.className = 'todo-checkbox';
     todoTitlePanel.appendChild(todoCheckbox);
 

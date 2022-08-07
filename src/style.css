@@ -1,6 +1,8 @@
 :root {
     --semitransparent: rgba(255, 255, 255, .75);
     --border-color: rgba(200, 200, 200);
+    --bg-color: rgba(165, 153, 115, .3);
+    --check-mark: url('./icons/check.png');
 }
 
 @font-face {
@@ -43,7 +45,7 @@ body {
 
 #header {
     grid-column: 1 / 3;
-    background-color: rgba(165, 153, 115, .3);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,21 +78,48 @@ body {
     display: flex;
     align-items: center;
     gap: 1em;
+    cursor: pointer;
 }
 
 .todo-title-panel:hover,
 .todo-title-panel:active {
     color: rgb(68, 63, 63);
-    font-size: 1.25em;
+    background-color: var(--bg-color);
+    /* font-size: 1.1em; */
 }
 
 .todo-checkbox {
-    width: 2em;
-    height: 2em;
+    appearance: none;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+.todo-checkbox:checked {
+    background-color: var(--bg-color);
+}
+
+.todo-checkbox:checked::after {
+    content: '';
+    background-image: var(--check-mark);
+    width: 1.6em;
+    height: 1.6em;
+    background-size: 1.7em;
+    display: inline-block;
 }
 
 .todo-title {
+    
+}
 
+.done {
+    opacity: .5;
+}
+
+.done .todo-title {
+    text-decoration: line-through;
 }
 
 .todo-date-edit-trash {
