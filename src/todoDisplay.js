@@ -10,8 +10,15 @@ function displayTodo(todo) {
 
     // check box + title 
     const todoTitlePanel = document.createElement('div');
-    todoTitlePanel.className = 'todo-title-panel';
+    todoTitlePanel.className = 'todo-title-panel';  
+    todoTitlePanel.addEventListener('mouseover', () => {
+        todoDescription.style.display = 'block';
+    })
+    todoTitlePanel.addEventListener('mouseout', () => {
+        todoDescription.style.display = 'none';
+    })  
 
+    // checkbox
     const todoCheckbox = document.createElement('input');
     todoCheckbox.type = 'checkbox';
     todoCheckbox.addEventListener('change', (e) => {
@@ -24,7 +31,8 @@ function displayTodo(todo) {
     todoCheckbox.className = 'todo-checkbox';
     todoTitlePanel.appendChild(todoCheckbox);
 
-    const todoTitle = document.createElement('div');
+    // title
+    const todoTitle = document.createElement('div');  
     todoTitle.className = 'todo-title';
     todoTitle.textContent = todo.getTitle();
     todoTitlePanel.appendChild(todoTitle);
