@@ -2,6 +2,7 @@
     --semitransparent: rgba(255, 255, 255, .75);
     --border-color: rgba(200, 200, 200);
     --bg-color: rgba(165, 153, 115, .3);
+    --high-priority-color: rgb(231, 51, 6);
     --check-mark: url('./icons/check.png');
 }
 
@@ -67,10 +68,15 @@ body {
 .todo-item {
     font-size: .6em;
     font-family: "Indie Flower", sans-serif;
-    font-weight: bold;
+    font-weight:bold;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1.2fr;
     grid-template-rows: 2em 1fr;
+}
+
+.high-priority {
+    color: var(--high-priority-color);
+    text-transform: uppercase;
 }
 
 .todo-title-panel {
@@ -85,7 +91,6 @@ body {
 .todo-title-panel:active {
     color: rgb(68, 63, 63);
     background-color: var(--bg-color);
-    /* font-size: 1.1em; */
 }
 
 .todo-checkbox {

@@ -35,6 +35,12 @@ function displayTodo(todo) {
     const todoTitle = document.createElement('div');  
     todoTitle.className = 'todo-title';
     todoTitle.textContent = todo.getTitle();
+
+    // handle priority
+    if(todo.getPriority() == 'high') {
+        todoItem.classList.add('high-priority');
+    }
+
     todoTitlePanel.appendChild(todoTitle);
     
     todoItem.appendChild(todoTitlePanel);   
