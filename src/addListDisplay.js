@@ -1,4 +1,9 @@
-function displayAddList(lists) {    
+import { update } from "./update";
+import { allLists } from './setup';
+import TodoList from "./todolist";
+import { content, screen } from "./dom";
+
+function displayAddList() {    
     const addListDialog = document.createElement('div');
     addListDialog.className = 'add-list-dialog';
     
@@ -9,6 +14,12 @@ function displayAddList(lists) {
     const addListCloseButton = document.createElement('button');
     addListCloseButton.className = 'close';
     addListCloseButton.textContent = 'x';
+
+    addListCloseButton.addEventListener('click', () => {
+        content.removeChild(addListDialog);
+        screen.style.display = 'none';
+    });
+
     bar.appendChild(addListCloseButton);
     addListDialog.appendChild(bar);
     
@@ -34,10 +45,21 @@ function displayAddList(lists) {
 
     // submit button
     const addListButton = document.createElement('button');
+    addListButton.type = 'button';
     addListButton.className = 'form-button';
     addListButton.textContent = 'Create List';
-    addListForm.appendChild(addListButton);
 
+    addListButton.addEventListener('click', () => {
+        const name = nameInput.value;
+        let newList = new TodoList(name);
+        allLists.add(newList);
+        update();
+        screen.style.display = 'none';
+        content.removeChild(addListDialog);
+    });
+
+
+    addListForm.appendChild(addListButton);
     addListDialog.appendChild(addListForm); 
 
     return addListDialog;

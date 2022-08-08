@@ -1,8 +1,9 @@
 import { allLists } from './setup';
 import displayNavItem from './navItemDisplay';
 import { createHomeList, createTodayList, createWeekList } from './specialLists';
-import { createIcon, screen } from './dom';
+import { createIcon, content, screen } from './dom';
 import { displayAddList } from './addListDisplay';
+import { displayAddTodo } from './addTodoDisplay';
 
 // icons
 import HomeIcon from './icons/home.png';
@@ -11,9 +12,9 @@ import WeekIcon from './icons/week.png';
 import MyListsIcon from './icons/projects.png';
 
 // create special lists
-const homeList = createHomeList(allLists);
-const todayList = createTodayList(homeList);
-const weekList = createWeekList(homeList);
+let homeList = createHomeList(allLists);
+let todayList = createTodayList(homeList);
+let weekList = createWeekList(homeList);
 
 function displayNav() {
     const navPanel = document.createElement('div');
@@ -42,26 +43,46 @@ function displayNav() {
     myLists.appendChild(myListsName);
 
     navPanel.appendChild(myLists);   
-    
+
+    const myListsPanel = document.createElement('div');
+    myListsPanel.classList.add('my-lists-panel');
+
     for(let list of allLists.getLists()) {
         const listName = displayNavItem(list, '');       
         listName.classList.add('list-name');
-        navPanel.appendChild(listName);
+        myListsPanel.appendChild(listName);
     }  
 
+    // buttons
+    navPanel.appendChild(myListsPanel);
+
     const addListButton = document.createElement('button');
+    addListButton.classList.add('add-button');
     addListButton.id = 'add-list-button';
     addListButton.textContent = 'Add List';
     addListButton.addEventListener('click', () => {
-        displayAddList(allLists);
-    })
+        screen.style.display = 'grid';
+        content.appendChild(displayAddList());
+    });
+
     navPanel.appendChild(addListButton);
+
+    const addTodoButton = document.createElement('button');
+    addTodoButton.classList.add('add-button');
+    addTodoButton.id = 'add-todo-button';
+    addTodoButton.textContent = 'Add Todo';
+    addTodoButton.addEventListener('click', () => {
+        screen.style.display = 'grid';
+        content.appendChild(displayAddTodo());
+    });
+
+    navPanel.appendChild(addTodoButton);
 
     return navPanel;
 }
 
 export default displayNav;
-export { homeList };
+export { homeList, todayList, weekList };
 
 
 

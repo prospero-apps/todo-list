@@ -1,5 +1,3 @@
-import TodoList from "./todolist";
-
 class TodoLists {
     constructor() {
         this.lists = [];
