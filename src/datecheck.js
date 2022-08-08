@@ -6,13 +6,14 @@ function formatDate(date) {
 
 function checkToday(date) {
     const today = new Date();
-    return formatDate(date) === formatDate(today);
+    const diff = differenceInCalendarDays(date, today);
+    return diff === 0;
 }
 
 function checkWeek(date) {
     const today = new Date();
     const diff = differenceInCalendarDays(date, today);
-    return diff > 0 && diff < 8;
+    return diff < 8;
 }
 
 export { formatDate, checkToday, checkWeek };

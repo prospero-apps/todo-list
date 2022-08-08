@@ -1,4 +1,5 @@
 import { createIcon } from './dom';
+import { formatDate } from './datecheck';
 
 // icons
 import EditIcon from './icons/edit.png';
@@ -51,10 +52,10 @@ function displayTodo(todo) {
 
     // date
     const todoDate = document.createElement('div');
-    todoDate.textContent = todo.getDueDate();
+    todoDate.textContent = formatDate(todo.getDueDate());
     todoDate.className = 'todo-date';
     todoDateEditTrash.appendChild(todoDate);
-
+    
     // edit
     const todoEdit = document.createElement('div');
     todoEdit.className = 'todo-edit';

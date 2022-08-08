@@ -4,6 +4,7 @@ import displayNav from './navDisplay';
 import { allLists } from './setup';
 
 import { formatDate, checkToday, checkWeek } from './datecheck';
+import { createHomeList, createTodayList, createWeekList } from './specialLists';
 
 import {
     content,

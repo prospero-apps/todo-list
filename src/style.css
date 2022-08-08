@@ -202,7 +202,10 @@ body {
 }
 
 .my-lists {
-
+    display: flex;
+    gap: .6em;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .list-name {

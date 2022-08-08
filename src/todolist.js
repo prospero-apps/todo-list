@@ -4,7 +4,7 @@ class TodoList {
     constructor(name) {
         this.name = name;
         this.todos = [];
-        this.addedTime = new Date();
+        // this.addedTime = new Date();
     }
 
     getName() {
@@ -26,7 +26,7 @@ class TodoList {
     add(todo) {
         this.todos.push(todo);
     }
-
+   
     remove(todo) {
         let todoIndex = todos.indexOf(todo);
         this.todos.splice(todoIndex, 1);
@@ -36,9 +36,9 @@ class TodoList {
         this.todos = [];
     }
 
-    sortByAddedTimeDesc() {
-        this.todos.sort((a, b) => b.addedTime - a.addedTime);
-    }
+    // sortByAddedTimeDesc() {
+    //     this.todos.sort((a, b) => b.addedTime - a.addedTime);
+    // }
 
 }
 
