@@ -1,11 +1,9 @@
 import './style.css';
 import displayList from './listDisplay';
 import displayNav from './navDisplay';
-import { allLists } from './setup';
-
-import { formatDate, checkToday, checkWeek } from './datecheck';
-import { createHomeList, createTodayList, createWeekList } from './specialLists';
-
+import { homeList } from './navDisplay';
+import { displayAddList } from './addListDisplay';
+import { displayAddTodo } from './addTodoDisplay';
 import {
     content,
     container, 
@@ -15,10 +13,7 @@ import {
     mainPanel,
 } from './dom';
 
+content.appendChild(displayAddList());
+// content.appendChild(displayAddTodo());
 sidebar.appendChild(displayNav());
-
-// checkToday();
-checkWeek(new Date(2022, 7, 15));
-
-const chosenList = allLists.getLists()[2];
-mainPanel.appendChild(displayList(chosenList));
+mainPanel.appendChild(displayList(homeList));

@@ -1,7 +1,8 @@
 import { allLists } from './setup';
 import displayNavItem from './navItemDisplay';
 import { createHomeList, createTodayList, createWeekList } from './specialLists';
-import { createIcon } from './dom';
+import { createIcon, screen } from './dom';
+import { displayAddList } from './addListDisplay';
 
 // icons
 import HomeIcon from './icons/home.png';
@@ -48,10 +49,19 @@ function displayNav() {
         navPanel.appendChild(listName);
     }  
 
+    const addListButton = document.createElement('button');
+    addListButton.id = 'add-list-button';
+    addListButton.textContent = 'Add List';
+    addListButton.addEventListener('click', () => {
+        displayAddList(allLists);
+    })
+    navPanel.appendChild(addListButton);
+
     return navPanel;
 }
 
 export default displayNav;
+export { homeList };
 
 
 

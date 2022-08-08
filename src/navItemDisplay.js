@@ -1,8 +1,14 @@
 import { createIcon } from './dom';
+import { mainPanel } from './dom';
+import displayList from './listDisplay';
 
 function displayNavItem(list, icon) {
     const navItem = document.createElement('div');
     navItem.className = 'nav-item';
+
+    navItem.addEventListener('click', () => {
+        mainPanel.replaceChild(displayList(list), mainPanel.children[0]);
+    });
 
     // icon + name
     const navIconName = document.createElement('div');

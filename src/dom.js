@@ -28,7 +28,9 @@ const sidebar = content.appendChild(createPanel('sidebar'));
 const notesPanel = content.appendChild(createPanel('notes-panel'));
 const mainPanel = content.appendChild(createPanel('main-panel'));
 
-add(container, header, sidebar, notesPanel, mainPanel);
+const screen = content.appendChild(createPanel('screen'));
+
+add(container, screen, header, sidebar, notesPanel, mainPanel);
 
 // header
 const headerText = document.createElement('div');
