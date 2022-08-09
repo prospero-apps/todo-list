@@ -38,23 +38,7 @@ class Todo {
 
     setPriority(value) {
         this.priority = value;
-    }
-
-    // getSelected() {
-    //     return this.selected;
-    // }
-
-    // setSelected(value) {
-    //     this.selected = value;
-    // }
-
-    // getDone() {
-    //     return this.done;
-    // }
-
-    // setDone(value) {
-    //     this.done = value;
-    // }
+    }    
 }
 
 export default Todo;

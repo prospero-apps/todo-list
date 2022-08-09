@@ -169,8 +169,6 @@ function displayAddTodo(todo = null) {
             todo.setDescription(descriptionInput.value);
             todo.setDueDate(new Date(dateInput.valueAsDate));
             todo.setPriority(priorityInput.value);
-
-            // myList.splice(myList.indexOf(todo), 1);
             selectedList.add(todo);
 
         } else {

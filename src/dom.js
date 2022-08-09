@@ -25,12 +25,11 @@ const content = document.getElementById('content');
 const container = content.appendChild(createPanel('container'));
 const header = content.appendChild(createPanel('header'));
 const sidebar = content.appendChild(createPanel('sidebar'));
-const notesPanel = content.appendChild(createPanel('notes-panel'));
 const mainPanel = content.appendChild(createPanel('main-panel'));
 
 const screen = content.appendChild(createPanel('screen'));
 
-add(container, screen, header, sidebar, notesPanel, mainPanel);
+add(container, screen, header, sidebar, mainPanel);
 
 // header
 const headerText = document.createElement('div');
@@ -39,8 +38,6 @@ headerText.id = 'header-text';
 const headerIcon = createIcon(ListIcon);
 add(header, headerIcon, headerText); 
 
-
-
 export {
     createIcon,
     content,
@@ -48,7 +45,6 @@ export {
     container, 
     header,
     sidebar,
-    notesPanel,
     mainPanel,
 }
 

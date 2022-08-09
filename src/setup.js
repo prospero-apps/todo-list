@@ -1,8 +1,6 @@
 import Todo from "./todo";
 import TodoList from "./todolist";
 import TodoLists from "./todolists";
-// import Note from "./note";
-// import NoteList from "./notelist";
 
 let allLists = new TodoLists();
 
@@ -91,40 +89,4 @@ if(localStorage.length === 0){
     }
 }
 
-
-
-// /* NOTELIST AND NOTES */
-
-// // sample notes
-// let note1 = new Note(
-//     'shopping list',
-//     '10 eggs, sugar, milk, apples, flour, 2 big cabbages, mineral water');
-
-// let note2 = new Note(
-//     'present idea',
-//     'Steve wants a new toy car for his fifth birthday.');
-
-// let note3 = new Note(
-//     "Amy's new address",
-//     '44 Pearl Avenue, Big Bang City 22650');
-
-// let note4 = new Note(
-//     'my password to sth I know about',
-//     'abc123');
-
-// let note5 = new Note(
-//     'info about Mr. Lee',
-//     'married, two kids (daughter, 36 and son, 33), math teacher, likes loud music sports, dog person');
-
-// // create the note list and add the notes to it
-// let notelist = new NoteList();
-
-// notelist.add(note1);
-// notelist.add(note2);
-// notelist.add(note3);
-// notelist.add(note4);
-// notelist.add(note5);
-
-
-// export { save, allLists, notelist }
 export { save, allLists }

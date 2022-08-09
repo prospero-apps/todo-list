@@ -44,6 +44,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px 3fr 1fr;
+    grid-template-rows: 100px 1fr;
     box-shadow: 0 0 50px black;
 }
 
@@ -57,13 +58,9 @@ body {
     text-shadow: 0 0 5px black;    
 }
 
-#sidebar {
-    border-bottom: 1px solid var(--border-color);
-}
-
 #main-panel {
     border-left: 1px solid var(--border-color);
-    grid-row: 2 / 4;
+    grid-row: 2 / 3;
     grid-column: 2 / 3;
 }
 
@@ -161,7 +158,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: .2em; 
-
 }
 
 .nav-item {
@@ -197,7 +193,10 @@ body {
 }
 
 .my-lists-panel {
-    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+    height: 200px;
     overflow-y: auto;
 }
 
