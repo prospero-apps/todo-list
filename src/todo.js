@@ -40,21 +40,21 @@ class Todo {
         this.priority = value;
     }
 
-    getSelected() {
-        return this.selected;
-    }
+    // getSelected() {
+    //     return this.selected;
+    // }
 
-    setSelected(value) {
-        this.selected = value;
-    }
+    // setSelected(value) {
+    //     this.selected = value;
+    // }
 
-    getDone() {
-        return this.done;
-    }
+    // getDone() {
+    //     return this.done;
+    // }
 
-    setDone(value) {
-        this.done = value;
-    }
+    // setDone(value) {
+    //     this.done = value;
+    // }
 }
 
 export default Todo;

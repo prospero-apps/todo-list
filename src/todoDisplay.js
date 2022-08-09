@@ -2,7 +2,7 @@ import { createIcon } from './dom';
 import { formatDate } from './datecheck';
 import { displayAddTodo } from './addTodoDisplay';
 import { content, screen } from './dom';
-import { allLists } from './setup';
+import { save, allLists } from './setup';
 import { update } from './update';
 
 // icons
@@ -84,6 +84,7 @@ function displayTodo(todo) {
             }
         }
 
+        save();
         update();
     })
 

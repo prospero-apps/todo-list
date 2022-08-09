@@ -8,7 +8,7 @@ class TodoLists {
     }
 
     count() {
-        return this.todos.length;
+        return this.lists.length;
     }
 
     add(list) {

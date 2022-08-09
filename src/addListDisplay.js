@@ -1,5 +1,5 @@
 import { update } from "./update";
-import { allLists } from './setup';
+import { save, allLists } from './setup';
 import TodoList from "./todolist";
 import { content, screen } from "./dom";
 
@@ -53,6 +53,7 @@ function displayAddList() {
         const name = nameInput.value;
         let newList = new TodoList(name);
         allLists.add(newList);
+        save();
         update();
         screen.style.display = 'none';
         content.removeChild(addListDialog);

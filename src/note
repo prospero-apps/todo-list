@@ -1,24 +1,24 @@
-class Note {
-    constructor(title, description) {
-        this.title = title;
-        this.description = description;
-    }
+// class Note {
+//     constructor(title, description) {
+//         this.title = title;
+//         this.description = description;
+//     }
 
-    getTitle() {
-        return this.title;
-    }
+//     getTitle() {
+//         return this.title;
+//     }
 
-    setTitle(value) {
-        this.title = value;
-    }
+//     setTitle(value) {
+//         this.title = value;
+//     }
 
-    getDescription() {
-        return this.description;
-    }
+//     getDescription() {
+//         return this.description;
+//     }
 
-    setDescription(value) {
-        this.description = value;
-    }    
-}
+//     setDescription(value) {
+//         this.description = value;
+//     }    
+// }
 
-export default Note;
+// export default Note;

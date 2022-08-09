@@ -1,5 +1,5 @@
 import Todo from "./todo";
-import { allLists } from './setup';
+import { allLists, save } from './setup';
 import { screen } from './dom';
 import { update } from "./update";
 
@@ -132,7 +132,7 @@ function displayAddTodo(todo = null) {
     if(todo) {
         titleInput.value = todo.getTitle();
         descriptionInput.value = todo.getDescription();
-        dateInput.valueAsDate = todo.getDueDate();
+        dateInput.valueAsDate = new Date(todo.getDueDate());
         priorityInput.value = todo.getPriority();
 
         let myList;
@@ -176,43 +176,17 @@ function displayAddTodo(todo = null) {
         } else {
             let newTodo = new Todo(title, description, dueDate, priority);
             selectedList.add(newTodo);
-        }
+        }        
 
-        
-
-        
+        save();
 
         update();
         screen.style.display = 'none';
         content.removeChild(addTodoDialog);
     });
 
-
-
-    // addTodoButton.addEventListener('click', () => {
-    //     const title = titleInput.value;
-    //     const description = descriptionInput.value;
-    //     const dueDate = new Date(dateInput.valueAsDate);
-    //     const priority = priorityInput.value;        
-        
-    //     const selectedList = allLists.getLists()[listInput.options[listInput.selectedIndex].value];
-    
-    //     let newTodo = new Todo(title, description, dueDate, priority);
-
-    //     selectedList.add(newTodo);
-
-    //     update();
-    //     screen.style.display = 'none';
-    //     content.removeChild(addTodoDialog);
-    // });
-
-    
-
-
     addTodoForm.appendChild(addTodoButton);
-
     addTodoDialog.appendChild(addTodoForm); 
-
     return addTodoDialog;
 }
 
