@@ -1,12 +1,27 @@
 import { createIcon } from './dom';
 import { mainPanel } from './dom';
 import displayList from './listDisplay';
+import { navPanel } from './navDisplay';
 
 function displayNavItem(list, icon) {
     const navItem = document.createElement('div');
     navItem.className = 'nav-item';
 
     navItem.addEventListener('click', () => {
+        for(let child of navPanel.children) {
+            if(child.classList.contains('selected')) {
+                child.classList.remove('selected');
+            }
+            if(child.hasChildNodes()) {
+                for(let subchild of child.children) {
+                    if(subchild.classList.contains('selected')) {
+                        subchild.classList.remove('selected');
+                    }
+                }
+            }
+        }
+
+        navItem.classList.add('selected');
         mainPanel.replaceChild(displayList(list), mainPanel.children[0]);
     });
 

@@ -149,6 +149,11 @@ body {
     gap: .5em;
 }
 
+.todo-edit:hover,
+.todo-trash:hover {
+    opacity: .5;
+}
+
 /* SIDEBAR */
 .nav-panel {
     padding: 1em;
@@ -164,6 +169,10 @@ body {
     gap: 1em;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav-item.selected {
+    font-weight: bold;
 }
 
 .nav-item:hover {

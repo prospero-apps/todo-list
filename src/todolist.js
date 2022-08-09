@@ -25,7 +25,7 @@ class TodoList {
     }
    
     remove(todo) {
-        let todoIndex = todos.indexOf(todo);
+        let todoIndex = this.todos.indexOf(todo);
         this.todos.splice(todoIndex, 1);
     }
 

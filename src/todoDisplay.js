@@ -1,5 +1,9 @@
 import { createIcon } from './dom';
 import { formatDate } from './datecheck';
+import { displayAddTodo } from './addTodoDisplay';
+import { content, screen } from './dom';
+import { allLists } from './setup';
+import { update } from './update';
 
 // icons
 import EditIcon from './icons/edit.png';
@@ -60,12 +64,29 @@ function displayTodo(todo) {
     const todoEdit = document.createElement('div');
     todoEdit.className = 'todo-edit';
     todoEdit.appendChild(createIcon(EditIcon));
+
+    todoEdit.addEventListener('click', () => {
+        screen.style.display = 'grid';
+        content.appendChild(displayAddTodo(todo));        
+    })
+
     todoDateEditTrash.appendChild(todoEdit);
 
     // trash
     const todoTrash = document.createElement('div');
     todoTrash.className = 'todo-trash';
     todoTrash.appendChild(createIcon(TrashIcon));
+
+    todoTrash.addEventListener('click', () => {
+        for(const list of allLists.getLists()) {
+            if(list.getTodos().includes(todo)) {
+                list.remove(todo);
+            }
+        }
+
+        update();
+    })
+
     todoDateEditTrash.appendChild(todoTrash);
 
     todoItem.appendChild(todoDateEditTrash);

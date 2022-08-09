@@ -48,7 +48,7 @@ function displayAddList() {
     addListButton.type = 'button';
     addListButton.className = 'form-button';
     addListButton.textContent = 'Create List';
-
+  
     addListButton.addEventListener('click', () => {
         const name = nameInput.value;
         let newList = new TodoList(name);

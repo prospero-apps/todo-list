@@ -12,37 +12,37 @@ import NoteList from "./notelist";
 let todo1 = new Todo(
     'write the essay',
     'the essay for my English class',
-    new Date(2022, 7, 8),
+    new Date(Date.UTC(2022, 7, 8)),
     'low');
 
 let todo2 = new Todo(
     "get Amy's kids from school",
     "Amy's kids finish classes two hours earlier today",
-    new Date(2022, 7, 8),
+    new Date(Date.UTC(2022, 7, 8)),
     'high');
 
 let todo3 = new Todo(
     'run 10 km',
     'go to park and run two laps around the lake',
-    new Date(2022, 7, 8),
+    new Date(Date.UTC(2022, 7, 8)),
     'low');
 
 let todo4 = new Todo(
     'get cake',
     "go to Stacy's bakery to collect the birthday cake for Chris",
-    new Date(2022, 7, 12),
+    new Date(Date.UTC(2022, 7, 12)),
     'high');
 
 let todo5 = new Todo(
     'sell the car',
     'look at some ads in local newspapers and online to find someone who wants to buy my car',
-    new Date(2022, 7, 19),
+    new Date(Date.UTC(2022, 7, 19)),
     'low');
 
 let todo6 = new Todo(
     'paint kitchen',
     'get yellow paint and paint all the walls plus ceiling in the kitchen',
-    new Date(2022, 7, 30),
+    new Date(Date.UTC(2022, 7, 30)),
     'low');
 
 // sample TodoLists 
@@ -98,5 +98,20 @@ notelist.add(note2);
 notelist.add(note3);
 notelist.add(note4);
 notelist.add(note5);
+
+
+
+
+// add to localStorage
+for(const list in allLists) {
+    console.log(list);
+    // localStorage.setItem(list.getName(), list);
+    // for(const todo in list.getTodos()) {
+    //     // localStorage.setItem(todo.getTitle, todo);
+    // }
+}
+
+
+
 
 export { allLists, notelist }

@@ -16,8 +16,10 @@ let homeList = createHomeList(allLists);
 let todayList = createTodayList(homeList);
 let weekList = createWeekList(homeList);
 
+let navPanel;
+
 function displayNav() {
-    const navPanel = document.createElement('div');
+    navPanel = document.createElement('div');
     navPanel.className = 'nav-panel';
   
     const homeSpecialList = displayNavItem(homeList, HomeIcon);
@@ -82,7 +84,7 @@ function displayNav() {
 }
 
 export default displayNav;
-export { homeList, todayList, weekList };
+export { homeList, todayList, weekList, navPanel };
 
 
 

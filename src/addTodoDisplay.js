@@ -3,7 +3,7 @@ import { allLists } from './setup';
 import { screen } from './dom';
 import { update } from "./update";
 
-function displayAddTodo() {    
+function displayAddTodo(todo = null) {    
     const addTodoDialog = document.createElement('div');
     addTodoDialog.className = 'add-todo-dialog';
     
@@ -70,7 +70,10 @@ function displayAddTodo() {
     dateInput.type = 'date';
     dateInput.className = 'date-input';
     dateInput.id = 'add-new-todo-date';
-    dateInput.required = true;    
+    dateInput.required = true; 
+    
+    dateInput.valueAsDate = new Date();
+
     datePanel.appendChild(dateInput);
     addTodoForm.appendChild(datePanel);
 
@@ -119,36 +122,89 @@ function displayAddTodo() {
         option.value = allLists.getLists().indexOf(list);
         option.text = list.getName();
         listInput.add(option);
-    }    
-
-    
+    }       
 
     listPanel.appendChild(listInput);
     addTodoForm.appendChild(listPanel);
 
+    
+    // edit
+    if(todo) {
+        titleInput.value = todo.getTitle();
+        descriptionInput.value = todo.getDescription();
+        dateInput.valueAsDate = todo.getDueDate();
+        priorityInput.value = todo.getPriority();
+
+        let myList;
+        let listIndex;        
+
+        for(const list of allLists.getLists()) {
+            if(list.getTodos().includes(todo)) {
+                myList = list;
+                listIndex = allLists.getLists().indexOf(list)
+            }
+        }
+
+        // remove from current list
+        myList.remove(todo);
+        listInput.value = listIndex;
+    }
+
     // submit button
     const addTodoButton = document.createElement('button');
     addTodoButton.type = 'button';
-    addTodoButton.className = 'form-button';
-    addTodoButton.textContent = 'Create Todo';
+    addTodoButton.className = 'form-button';    
+    addTodoButton.textContent = todo ? 'Edit Todo' : 'Create Todo';
 
     addTodoButton.addEventListener('click', () => {
         const title = titleInput.value;
         const description = descriptionInput.value;
-        const dueDate = new Date(dateInput.value);
-        const priority = priorityInput.value;
-        // const list = listInput.options[listInput.selectedIndex].value;
+        const dueDate = new Date(dateInput.valueAsDate);
+        const priority = priorityInput.value;        
         
         const selectedList = allLists.getLists()[listInput.options[listInput.selectedIndex].value];
     
-        let newTodo = new Todo(title, description, dueDate, priority);
+        if(todo) {
+            todo.setTitle(titleInput.value);
+            todo.setDescription(descriptionInput.value);
+            todo.setDueDate(new Date(dateInput.valueAsDate));
+            todo.setPriority(priorityInput.value);
 
-        selectedList.add(newTodo);
+            // myList.splice(myList.indexOf(todo), 1);
+            selectedList.add(todo);
+
+        } else {
+            let newTodo = new Todo(title, description, dueDate, priority);
+            selectedList.add(newTodo);
+        }
+
+        
+
+        
 
         update();
         screen.style.display = 'none';
         content.removeChild(addTodoDialog);
     });
+
+
+
+    // addTodoButton.addEventListener('click', () => {
+    //     const title = titleInput.value;
+    //     const description = descriptionInput.value;
+    //     const dueDate = new Date(dateInput.valueAsDate);
+    //     const priority = priorityInput.value;        
+        
+    //     const selectedList = allLists.getLists()[listInput.options[listInput.selectedIndex].value];
+    
+    //     let newTodo = new Todo(title, description, dueDate, priority);
+
+    //     selectedList.add(newTodo);
+
+    //     update();
+    //     screen.style.display = 'none';
+    //     content.removeChild(addTodoDialog);
+    // });
 
     
 
